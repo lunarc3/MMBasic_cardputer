@@ -15,22 +15,42 @@ This project is a port of MMBasic to the CardputerADV platform. Since it is a po
 This ported firmware retains the original copyright notice of MMBasic. All copyrights for MMBasic belong to the original author, **Geoff Graham**.  
 This project provides only the compiled `.bin` firmware; no source code is included.
 
-## What's Working So Far
+## What's Implemented So Far
 - Keyboard input
 - Screen display
 - SD card read/write
 - The most important part: the core interpreter
 
-## Tested
-- Common BASIC functions
-- File operations
+## Version 1.0.0 Notes
 
-## Not Tested
-- GPIO: Neither the code nor the hardware has been tested, so the GPIO code is provided with no guarantees at this time.
+### SUB / FUNCTION
+My implementation approach differs from PicoMite — I used a workaround, but it should be compatible with BASIC code written for PicoMite.  
+(If you encounter any issues related to this while running a BASIC program, please contact me and I'll adjust my code.)
+
+### File Management
+Added a `RENAME` command, which is not available in PicoMite.
+
+### FORMAT$
+The implementation of `FORMAT$` uses a different approach from PicoMite, but the results of running a program should be identical. If you find any bugs, please let me know.
 
 ## Planned Updates
-- Bluetooth keyboard support may be added in a future version? However, considering the Cardputer's small built-in screen, I'm still not sure if an external Bluetooth keyboard is really necessary...
-- GPIO: I need to learn more about this area, so it will take quite a while.
+
+- **SPRITE / 3D**  
+  Not yet implemented. Porting is in progress slowly.
+
+- **TURTLE**  
+  Basic functionality is available, but I may need to significantly rework my code.  
+  My implementation approach differs from PicoMite — I used a clever workaround. Ideally I would adopt the PicoMite approach, but that would require a few more days of work.
+
+- **XMODEM**  
+  Would anyone need this? (Given that debugging the GPIO part may take a very long time…)
+
+- **Bluetooth Keyboard Support**  
+  Might be added in the next version? However, considering the Cardputer's small built-in screen, I'm still not sure if an external Bluetooth keyboard is really necessary…
+
+- **GPIO**  
+  I need to learn more about this area, so it will take quite a while.  
+  Neither the GPIO code nor the hardware has been tested yet, so the GPIO code is currently provided with no guarantees.
 
 ## Acknowledgements
 A huge thank you to **Geoff Graham** for creating MMBasic and allowing me to port it to this platform.
