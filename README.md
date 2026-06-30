@@ -13,13 +13,36 @@ This project is a port of MMBasic to the CardputerADV platform. Since it is a po
 
 ## Copyright Notice
 This ported firmware retains the original copyright notice of MMBasic. All copyrights for MMBasic belong to the original author, **Geoff Graham**.  
-This project provides only the compiled `.bin` firmware; no source code is included.
 
 ## What's Implemented So Far
 - Keyboard input
 - Screen display
 - SD card read/write
 - The most important part: the core interpreter
+
+## Version 1.0.01 Notes
+- SPRITE added and tested
+- GPIO implemented using Arduino standard library, but not yet tested
+  Regarding pins: since the default I2C pins (GPIO 8/9) on the Cardputer ADV are 
+  occupied by the keyboard and IMU, you'll need to use G1/G2 on the Grove connector 
+  (on the left side of the device) for external peripherals.
+  I'm not sure if this is the right approach, but it's implemented for now.
+
+- Added EVAL$() / BASE$() / VAR SAVE / VAR RESTORE
+- Fixed a bug caused by free(copy)
+- Added ON GOTO/GOSUB (I thought I had already added it)
+- Added some missing operators (e.g. << >> \ etc.)
+- Fixed several minor bugs from the previous version caused by late-night coding
+
+**Planned for next version:**
+
+- FILL
+- FIX / BOUND / CHOICE
+- Framebuffer
+- turltle (not promise)
+- 3D (not promise)
+
+
 
 ## Version 1.0.0 Notes
 
@@ -35,7 +58,7 @@ The implementation of `FORMAT$` uses a different approach from PicoMite, but the
 
 ## Planned Updates
 
-- **SPRITE / 3D**  
+- **3D**  
   Not yet implemented. Porting is in progress slowly.
 
 - **TURTLE**  
